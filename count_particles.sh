@@ -15,14 +15,14 @@ if [ $# != 2 ]; then
     exit 0
 fi
 
-TOTAL_PARTICLES=$(relion_star_printtable $STAR_FILE data_ _rlnClassNumber | wc -l)
+echo Analyzing star file: $(realpath $STAR_FILE)
 
-echo Analysing star file: $(realpath $STAR_FILE)
+TOTAL_PARTICLES=$(relion_star_printtable $STAR_FILE data_ _rlnClassNumber | wc -l)
 echo Total number of particles: $TOTAL_PARTICLES
 
 for i in $(eval echo "{1..$CLASSES}"); do
     PARTICLES=$(relion_star_printtable $STAR_FILE data_ _rlnClassNumber | grep $i | wc -l)
     PRCT_TOTAL=$((100*$PARTICLES/$TOTAL_PARTICLES))
-    echo "Number of particles in class $i: $PARTICLES ($PRCT_TOTAL % of total)"
+    echo "Number of particles in class $i: $PARTICLES (~ $PRCT_TOTAL % of total)"
 done
 
