@@ -28,7 +28,7 @@ END {
     print "Total number of particles:", total;
     printf("%5s\t%9s\t%10s\n", "Class", "Particles", "% of total");
     for (i in classes) {
-        printf("%5d\t%9d\t%10.2f\n", i, classes[i], 100*classes[i]/total) | "sort -k 1 -n";
+        printf("%5d\t%9d\t%10.2f\n", i, classes[i], 100*classes[i]/total) | "sort -k 2 -n -r";
     }
 }
 
