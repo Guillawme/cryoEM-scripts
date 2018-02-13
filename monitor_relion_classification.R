@@ -11,7 +11,9 @@ library(tidyverse)
 # List summary files and load them in dataframes
 my_files <- list.files(path = ".",
                        pattern = "_data.star.tsv")
-my_datasets <- map(my_files, read_tsv, skip = 2)
+my_datasets <- map(.x = my_files,
+                   .f = read_tsv,
+                   ... = skip = 2)
 names(my_datasets) <- my_files
 
 # For each dataframe, add a column containing the iteration number
@@ -20,7 +22,7 @@ my_datasets <- map2(.x = my_datasets,
                     .y = iteration_numbers,
                     .f = ~ mutate(.data = .x, iteration = as.integer(.y)))
 
-# Plot results
+# Plot results based on particle number
 my_datasets %>%
     bind_rows() %>%
     mutate(Class = as.factor(Class)) %>%
@@ -31,7 +33,25 @@ my_datasets %>%
     ylab("Particles")
 
 # Save plot
-ggsave(filename = "relion_classification_progress.png",
+ggsave(filename = "relion_classification_progress_particles.png",
+       device = "png",
+       units = "cm",
+       width = 24.27,
+       height = 15,
+       dpi = 300)
+
+# Plot results based on class distribution
+my_datasets %>%
+    bind_rows() %>%
+    mutate(Class = as.factor(Class)) %>%
+    ggplot(aes(x = iteration, y = `% of total`, color = Class)) +
+    geom_line() +
+    theme_bw() +
+    xlab("Iteration") +
+    ylab("% of total")
+
+# Save plot
+ggsave(filename = "relion_classification_progress_distribution.png",
        device = "png",
        units = "cm",
        width = 24.27,
