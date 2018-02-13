@@ -17,7 +17,7 @@ NF > 2 {
     rlnClassNumber = $3;
 
     # Count particles in each class.
-    classes[rlnClassNumber]++;
+    particles[rlnClassNumber]++;
 
     # Count all particles.
     total++;
@@ -27,8 +27,8 @@ NF > 2 {
 END {
     print "Total number of particles:", total;
     printf("%5s\t%9s\t%10s\n", "Class", "Particles", "% of total");
-    for (i in classes) {
-        printf("%5d\t%9d\t%10.2f\n", i, classes[i], 100*classes[i]/total) | "sort -k 2 -n -r";
+    for (i in particles) {
+        printf("%5d\t%9d\t%10.2f\n", i, particles[i], 100*particles[i]/total) | "sort -k 2 -n -r";
     }
 }
 
