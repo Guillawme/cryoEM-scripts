@@ -13,7 +13,7 @@ my_files <- list.files(path = ".",
                        pattern = "_data.star.tsv")
 my_datasets <- map(.x = my_files,
                    .f = read_tsv,
-                   ... = skip = 2)
+                   skip = 2)
 names(my_datasets) <- my_files
 
 # For each dataframe, add a column containing the iteration number
