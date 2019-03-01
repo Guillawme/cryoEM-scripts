@@ -26,7 +26,7 @@ BEGIN {
 #    coordinate, not the center like relion)
 # 3. append the box size twice (this is for display of the boxes by eman2boxer
 #    and similar graphical programs)
-NF > 2 {
+NF == 5 {
     printf("%f\t%f\t%d\t%d\n",
            $1 - box_size / 2,
            $2 - box_size / 2,
