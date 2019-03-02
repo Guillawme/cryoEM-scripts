@@ -68,31 +68,35 @@ function cannot_download() {
     exit 1
 }
 
-## Download or symlink generic cryolo model
+## Symlink or download generic cryolo model
 if [ -f "$LATEST_CRYOLO_MODEL" ]; then
+    echo "Linking to local crYOLO model file..."
     ln -s $LATEST_CRYOLO_MODEL .
 elif [ $CURL_AVAILABLE ]
 then
-     curl -O $LATEST_CRYOLO_MODEL
+    echo "Downloading crYOLO model..."
+    curl -O $LATEST_CRYOLO_MODEL
 elif [ $WGET_AVAILABLE ]
 then
-     wget $LATEST_CRYOLO_MODEL
+    echo "Downloading crYOLO model..."
+    wget $LATEST_CRYOLO_MODEL
 else
     cannot_download
 fi
 
 ## Download config file and run scripts
 if [ $CURL_AVAILABLE ]; then
+    echo "Downloading config file and run scripts..."
     curl \
-        -O $CRYOLO_CONFIG -o config.json \
         -O $CRYOLO_TRAINING \
-        -O $CRYOLO_PICKING
+        -O $CRYOLO_PICKING \
+        -o config.json -O $CRYOLO_CONFIG
 elif [ $WGET_AVAILABLE ]
 then
-    wget \
-        $CRYOLO_CONFIG -O config.json \
-        $CRYOLO_TRAINING \
-        $CRYOLO_PICKING
+    echo "Downloading config file and run scripts..."
+    wget $CRYOLO_TRAINING
+    wget $CRYOLO_PICKING
+    wget -O config.json $CRYOLO_CONFIG
 else
     cannot_download
 fi
