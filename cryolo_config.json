@@ -1,0 +1,36 @@
+// See documentation at <http://sphire.mpg.de/wiki/doku.php?id=cryolo_config>
+// Not all JSON parsers support comments, so delete these two lines before use.
+{
+    "model": {
+        "architecture":         "PhosaurusNet",
+        "input_size":           768,
+        "anchors":              [175,175],
+        "max_box_per_image":    600,
+        "filter":               [0.1,"filtered"]
+    },
+ 
+    "train": {
+        "train_image_folder":   "training_micrographs",
+        "train_annot_folder":   "training_micrographs_coordinates/",
+        "train_times":          10,
+        "pretrained_weights":   "gmodel_phosnet_20190218_loss0042.h5",
+        "batch_size":           5,
+        "learning_rate":        1e-4,
+        "nb_epoch":             50,
+        "warmup_epochs":        0,
+        "object_scale":         5.0 ,
+        "no_object_scale":      1.0,
+        "coord_scale":          1.0,
+        "class_scale":          1.0,
+        "log_path":             "logs/",
+        "saved_weights_name":   "your-model.h5",
+        "debug":                true
+    },
+ 
+    "valid": {
+        "valid_image_folder":   "validation_micrographs",
+        "valid_annot_folder":   "validation_micrographs_coordinates",
+        "valid_times":          1
+    }
+}
+
