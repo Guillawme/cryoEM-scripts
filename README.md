@@ -15,6 +15,11 @@ Available utilities so far:
 - `dm4_to_mrc.sh`: convert a dm4 file to mrc format (useful to convert gain
   reference images to a format [MotionCor2][motioncor2] can read). Dependencies:
   bash, [EMAN2][EMAN2].
+- `star2box.awk`: convert particle coordinates from RELION `*pick.star` format
+  to EMAN2 `.box` format. Dependencies: awk.
+- `setup_cryolo.sh`, `run_cryolo_training.sh`, `run_cryolo_picking.sh`,
+  `cryolo_config.json`: set up a directory structure to train and/or perform
+  particle picking with crYOLO. Dependencies: bash, [crYOLO][cryolo].
 
 
 [relion]: https://github.com/3dem/relion
@@ -22,3 +27,4 @@ Available utilities so far:
 [EMAN2]: http://blake.bcm.edu/emanwiki/EMAN2
 [tidyverse]: https://www.tidyverse.org/packages
 [r]: https://www.r-project.org
+[cryolo]: http://sphire.mpg.de/wiki/doku.php?id=downloads:cryolo_1
