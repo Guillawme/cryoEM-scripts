@@ -4,7 +4,7 @@
 
 # Pick all micrographs with cryolo, using a generic model
 
-# --weigths indicates which model to use: optionally provide a model trained
+# --weights indicates which model to use: optionally provide a model trained
 # specifically on your own data here
 
 # --threshold is a picking threshold: default 0.3, increase to make it more
@@ -21,7 +21,7 @@ module load cuda/9.0 anaconda/3 eman2/2.22
 
 cryolo_predict.py \
 	--conf config.json \
-	--weigths gmodel_phosnet_20190218_loss0042.h5 \
+	--weights gmodel_phosnet_20190218_loss0042.h5 \
 	--input micrographs/ \
 	--output micrographs_coordinates/ \
 	--threshold 0.3 \
