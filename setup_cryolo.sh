@@ -101,3 +101,6 @@ else
     cannot_download
 fi
 
+# Make run scripts executable
+chmod +x run_cryolo_training.sh run_cryolo_picking.sh
+
