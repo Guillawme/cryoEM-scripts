@@ -4,14 +4,14 @@
     "model": {
         "architecture":         "PhosaurusNet",
         "input_size":           768,
-        "anchors":              [175,175],
+        "anchors":              [200,200],
         "max_box_per_image":    600,
         "filter":               [0.1,"filtered"]
     },
  
     "train": {
-        "train_image_folder":   "training_micrographs",
-        "train_annot_folder":   "training_micrographs_coordinates/",
+        "train_image_folder":   "micrographs",
+        "train_annot_folder":   "micrographs_coordinates/",
         "train_times":          10,
         "pretrained_weights":   "gmodel_phosnet_20190218_loss0042.h5",
         "batch_size":           5,
