@@ -3,6 +3,9 @@
 # Convert a DM4 file from Gatan Digital Micrograph to MRC format.
 # EMAN2 needs to be installed and accessible in PATH.
 
+# This line may vary according to your local installation
+module load eman2/2.22
+
 DM4=$1
 MRC=$2
 
