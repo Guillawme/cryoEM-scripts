@@ -10,6 +10,10 @@
 
 # --gpu designates which GPU to use
 
+# --fine_tune is only useful when training from a pre-existing model, to speed
+# up training by only optimizing weights of two layers (instead of all of them);
+# add this option as necessary.
+
 # This line depends on your environment setup.
 # Comment it out or edit it as needed.
 module load cuda/9.0 anaconda/3 eman2/2.22
@@ -28,5 +32,6 @@ cryolo_train.py \
 	--warmup 0 \
 	--gpu 0 \
 	--early 10 \
+        \ #--fine_tune \
 	2>cryolo_training.err | tee cryolo_training.log
 
