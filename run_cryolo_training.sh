@@ -16,7 +16,8 @@
 
 # This line depends on your environment setup.
 # Comment it out or edit it as needed.
-module load cuda/9.0 anaconda/3 eman2/2.22
+module purge
+module load cuda/9.0 cryolo/v1.3.1
 
 # Warm-up
 # This is not strictly required if starting from pre-trained weigths

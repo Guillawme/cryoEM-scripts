@@ -17,13 +17,14 @@
 
 # This line depends on your environment setup.
 # Comment it out or edit it as needed.
-module load cuda/9.0 anaconda/3 eman2/2.22
+module purge
+module load cuda/9.0 cryolo/v1.3.1
 
 cryolo_predict.py \
 	--conf config.json \
-	--weights gmodel_phosnet_20190218_loss0042.h5 \
+	--weights gmodel_phosnet_20190314.h5 \
 	--input micrographs/ \
-	--output micrographs_coordinates/ \
+	--output coordinates/ \
 	--threshold 0.3 \
         --distance 0 \
 	--gpu 0 \
