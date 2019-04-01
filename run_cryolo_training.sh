@@ -19,20 +19,22 @@
 module purge
 module load cuda/9.0 cryolo/v1.3.1
 
+RUN=001
+
 # Warm-up
 # This is not strictly required if starting from pre-trained weigths
 cryolo_train.py \
-	--conf config.json \
-	--warmup 3 \
-	--gpu 0 \
-	2>cryolo_warmup.err | tee cryolo_warmup.log
+    --conf config.json \
+    --warmup 3 \
+    --gpu 0 \
+    2>cryolo_warmup_"$RUN".err | tee cryolo_warmup_"$RUN".log
 
 # Training
 cryolo_train.py \
-	--conf config.json \
-	--warmup 0 \
-	--gpu 0 \
-	--early 10 \
-        \ #--fine_tune \
-	2>cryolo_training.err | tee cryolo_training.log
+    --conf config.json \
+    --warmup 0 \
+    --gpu 0 \
+    --early 10 \
+    \ #--fine_tune \
+    2>cryolo_training_"$RUN".err | tee cryolo_training_"$RUN".log
 

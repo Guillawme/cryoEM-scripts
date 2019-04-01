@@ -6,7 +6,7 @@
 # Update this URL with latest model before running this script.
 # This can also be an absolute path if the file is already present on the local
 # machine.
-LATEST_CRYOLO_MODEL=ftp://ftp.gwdg.de/pub/misc/sphire/crYOLO-GENERAL-MODELS/gmodel_phosnet_20190218_loss0042.h5
+LATEST_CRYOLO_MODEL=ftp://ftp.gwdg.de/pub/misc/sphire/crYOLO-GENERAL-MODELS/gmodel_phosnet_20190314.h5
 
 # Don't change after this line
 CWD=$(pwd)
@@ -23,8 +23,7 @@ fi
 ## Create directory structure under a new directory
 mkdir -p \
       $CWD/crYOLO \
-      $CWD/crYOLO/micrographs \
-      $CWD/crYOLO/micrographs_coordinates \
+      $CWD/crYOLO/micrographs
 
 ## Keep all files under crYOLO/
 cd $CWD/crYOLO
@@ -60,7 +59,7 @@ function cannot_download() {
     echo "Could not download files."
     echo "Check that wget or curl is installed and rerun this script."
     echo "You can also create crYOLO config file manually."
-    echo "You can find run scripts at https://github.com/Guilz/cryoEM-scripts"
+    echo "You can find run scripts at https://github.com/Guillawme/cryoEM-scripts"
     echo "You can find crYOLO model at http://sphire.mpg.de/wiki/doku.php?id=downloads:cryolo_1"
     exit 1
 }

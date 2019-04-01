@@ -25,14 +25,20 @@
 module purge
 module load cuda/9.0 cryolo/v1.3.1
 
+RUN=001
+
+if [ ! -d coordinates_"$RUN" ]; then
+    mkdir coordinates_"$RUN"
+fi
+
 cryolo_predict.py \
-	--conf config.json \
-	--weights gmodel_phosnet_20190314.h5 \
-	--input micrographs/ \
-	--output coordinates/ \
-	--threshold 0.3 \
-        --distance 0 \
-        --otf \
-	--gpu 0 \
-	2>cryolo_generic_picking.err | tee cryolo_generic_picking.log
+    --conf config.json \
+    --weights gmodel_phosnet_20190314.h5 \
+    --input micrographs/ \
+    --output coordinates_"$RUN"/ \
+    --threshold 0.3 \
+    --distance 0 \
+    --otf \
+    --gpu 0 \
+    2>cryolo_picking_"$RUN".err | tee cryolo_picking_"$RUN".log
 
