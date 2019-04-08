@@ -25,7 +25,7 @@
 module purge
 module load cuda/9.0 cryolo/v1.3.1
 
-RUN=001
+RUN="001"
 
 if [ ! -d coordinates_"$RUN" ]; then
     mkdir coordinates_"$RUN"

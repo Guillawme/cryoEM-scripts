@@ -19,7 +19,7 @@
 module purge
 module load cuda/9.0 cryolo/v1.3.1
 
-RUN=001
+RUN="001"
 
 # Warm-up
 # This is not strictly required if starting from pre-trained weigths
