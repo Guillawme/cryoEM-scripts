@@ -10,9 +10,10 @@ LATEST_CRYOLO_MODEL=ftp://ftp.gwdg.de/pub/misc/sphire/crYOLO-GENERAL-MODELS/gmod
 
 # Don't change after this line
 CWD=$(pwd)
-CRYOLO_CONFIG=https://raw.githubusercontent.com/Guilz/cryoEM-scripts/master/cryolo_config.json
-CRYOLO_TRAINING=https://raw.githubusercontent.com/Guilz/cryoEM-scripts/master/run_cryolo_training.sh
-CRYOLO_PICKING=https://raw.githubusercontent.com/Guilz/cryoEM-scripts/master/run_cryolo_picking.sh
+CRYOLO_CONFIG=https://raw.githubusercontent.com/Guillawme/cryoEM-scripts/master/cryolo_config.json
+CRYOLO_TRAINING=https://raw.githubusercontent.com/Guillawme/cryoEM-scripts/master/run_cryolo_training.sh
+CRYOLO_PICKING=https://raw.githubusercontent.com/Guillawme/cryoEM-scripts/master/run_cryolo_picking.sh
+CRYOLO_EVALUATION=https://raw.githubusercontent.com/Guillawme/cryoEM-scripts/master/run_cryolo_evaluation.sh
 
 ## Stop if there is already a crYOLO directory here
 if [ -d "crYOLO" ]; then
@@ -86,17 +87,19 @@ if [ $CURL_AVAILABLE ]; then
     curl \
         -O $CRYOLO_TRAINING \
         -O $CRYOLO_PICKING \
+	-O $CRYOLO_EVALUATION \
         -o config.json -O $CRYOLO_CONFIG
 elif [ $WGET_AVAILABLE ]
 then
     echo "Downloading config file and run scripts..."
     wget $CRYOLO_TRAINING
     wget $CRYOLO_PICKING
+    wget $CRYOLO_EVALUATION
     wget -O config.json $CRYOLO_CONFIG
 else
     cannot_download
 fi
 
 # Make run scripts executable
-chmod +x run_cryolo_training.sh run_cryolo_picking.sh
+chmod +x run_cryolo_training.sh run_cryolo_picking.sh run_cryolo_evaluation.sh
 

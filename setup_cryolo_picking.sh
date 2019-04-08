@@ -10,8 +10,8 @@ LATEST_CRYOLO_MODEL=ftp://ftp.gwdg.de/pub/misc/sphire/crYOLO-GENERAL-MODELS/gmod
 
 # Don't change after this line
 CWD=$(pwd)
-CRYOLO_CONFIG=https://raw.githubusercontent.com/Guilz/cryoEM-scripts/master/cryolo_config.json
-CRYOLO_PICKING=https://raw.githubusercontent.com/Guilz/cryoEM-scripts/master/run_cryolo_picking.sh
+CRYOLO_CONFIG=https://raw.githubusercontent.com/Guillawme/cryoEM-scripts/master/cryolo_config.json
+CRYOLO_PICKING=https://raw.githubusercontent.com/Guillawme/cryoEM-scripts/master/run_cryolo_picking.sh
 
 ## Stop if there is already a crYOLO directory here
 if [ -d "crYOLO" ]; then
