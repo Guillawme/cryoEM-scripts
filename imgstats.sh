@@ -23,7 +23,7 @@ for micrograph in $MICS; do
     header -mean $micrograph
 done > mean.txt
 
-nl minimum.txt > minimum_num.txt
+nl -v 0 minimum.txt > minimum_num.txt
 
 echo -e "micrograph\tminimum\tmaximum\tmean" > header.txt
 
