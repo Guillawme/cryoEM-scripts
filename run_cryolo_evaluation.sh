@@ -8,7 +8,7 @@
 # This line depends on your environment setup.
 # Comment it out or edit it as needed.
 module purge
-module load cuda/9.0 cryolo/v1.3.1
+module load cuda/9.0 cryolo/v1.5.1
 
 RUN="001"
 
