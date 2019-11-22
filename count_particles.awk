@@ -1,9 +1,10 @@
 #! /usr/bin/awk -f
 
 # Count particles in each class from a class2D or class3D run_it***_data.star
-# file from RELION. In class2D jobs, each particle can contribute to several
-# classes (with different weights adding up to 1), therefore the sum of reported
-# particles per class will exceed the total number of particles.
+# file from RELION.
+
+# Usage:
+# count_particles.awk run_it025_data.star
 
 # Report which file is being analyzed.
 $1 ~ /data_/ {
@@ -13,7 +14,9 @@ $1 ~ /data_/ {
 # Go through the file line by line and count how many times each class appears
 # (each line is a particle). Only analyze lines with more than 2 fields.
 NF > 2 {
-    # rlnClassNumber is the 3rd field in run_it***_data.star files from RELION.
+    # rlnClassNumber is the 3rd field in run_it***_data.star files from
+    # RELION-3.0. Change this if your version of RELION orders columns of star
+    # files differently.
     rlnClassNumber = $3;
 
     # Count particles in each class.
