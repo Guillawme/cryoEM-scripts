@@ -27,6 +27,9 @@ Available utilities so far:
   constitute a training set for crYOLO. Dependencies: Python3, `numpy`.
 - `imgstats.sh`: gather pixel intensity statistics from motion-corrected
   micrographs. Dependencies: [IMOD][imod].
+- `exclude_low_res_micrographs.awk`: filter a `micrographs_ctf.star` file from
+  RELION to keep only micrographs with a rlnCtfMaxResolution equal to or better
+  than a user-provided threshold. Dependencies: awk.
 
 
 [relion]: https://github.com/3dem/relion
