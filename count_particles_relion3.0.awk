@@ -6,6 +6,13 @@
 # Usage:
 # count_particles.awk run_it025_data.star
 
+# Check if the star file comes from RELION-3.1.
+$1 ~ /data_optics/ {
+    print "This star file comes from RELION-3.1." > "/dev/stderr";
+    print "Use `count_particles_relion3.1.awk' instead." > "/dev/stderr";
+    exit 1;
+}
+
 # Report which file is being analyzed.
 $1 ~ /data_/ {
     print "Analyzing star file:", FILENAME;
