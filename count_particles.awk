@@ -13,11 +13,11 @@ $1 ~ /data_particles/ {
 
 # Go through the file line by line and count how many times each class appears
 # (each line is a particle). Only analyze lines with more than 2 fields.
-NF == 24 {
-    # rlnClassNumber is the 4th field in run_it***_data.star files from
-    # RELION-3.1. Change this if your version of RELION orders columns of star
+NF > 10 {
+    # rlnClassNumber is the 3rd field in run_it***_data.star files from
+    # RELION-3.1.0. Change this if your version of RELION orders columns of star
     # files differently.
-    rlnClassNumber = $4;
+    rlnClassNumber = $3;
 
     # Count particles in each class.
     particles[rlnClassNumber]++;
