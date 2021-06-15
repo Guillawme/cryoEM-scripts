@@ -1,5 +1,15 @@
 # CryoEM scripts
 
+**The scripts in this repository are currently not maintained and may be
+outdated. Some of the functionality I use regularly can be found in the
+following tools, that I still maintain:**
+
+- [topaztrainmetric](https://github.com/Guillawme/topaztrainmetrics)
+- [countparticles](https://github.com/Guillawme/countparticles)
+- [classconvergence](https://github.com/Guillawme/classconvergence)
+- [angdist](https://github.com/Guillawme/angdist)
+- [localres](https://github.com/Guillawme/localres)
+
 Various utilities to help cryoEM data analysis
 
 Available utilities so far:
